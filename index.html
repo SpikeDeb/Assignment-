@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AuraGrades | Elite Academic & Project Solutions</title>
+    <title>AuraGrades | Global Academic & Project Solutions</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts: Space Grotesk for that modern Tech/Gen-Z vibe -->
+    <!-- Google Fonts: Space Grotesk -->
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <script>
@@ -18,20 +18,19 @@
                 extend: {
                     fontFamily: { sans: ['Space Grotesk', 'sans-serif'] },
                     colors: {
-                        dark: '#050505',
-                        surface: '#111111',
-                        primary: '#8b5cf6', // Violet
-                        accent: '#06b6d4',  // Cyan
+                        dark: '#030303',
+                        surface: '#0f0f11',
+                        primary: '#6366f1', // Indigo
+                        accent: '#14b8a6',  // Teal
                         whatsapp: '#25D366'
                     },
                     animation: {
-                        'marquee': 'marquee 25s linear infinite',
-                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
-                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'marquee': 'marquee 30s linear infinite',
+                        'fade-in-up': 'fadeInUp 1s ease-out forwards',
                     },
                     keyframes: {
-                        marquee: { '0%': { transform: 'translateX(0%)' }, '100%': { transform: 'translateX(-100%)' } },
-                        fadeInUp: { '0%': { opacity: '0', transform: 'translateY(20px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } }
+                        marquee: { '0%': { transform: 'translateX(0%)' }, '100%': { transform: 'translateX(-50%)' } },
+                        fadeInUp: { '0%': { opacity: '0', transform: 'translateY(30px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } }
                     }
                 }
             }
@@ -39,43 +38,38 @@
     </script>
 
     <style>
-        body { background-color: #050505; color: #ffffff; overflow-x: hidden; }
+        body { background-color: #030303; color: #ffffff; overflow-x: hidden; }
         
-        /* Modern Gradient Backgrounds */
+        /* Premium Ambient Glow */
         .bg-glow {
-            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+            position: fixed; inset: 0; width: 100vw; height: 100vh;
             background: 
-                radial-gradient(circle at 15% 50%, rgba(139, 92, 246, 0.08), transparent 25%),
-                radial-gradient(circle at 85% 30%, rgba(6, 182, 212, 0.08), transparent 25%);
+                radial-gradient(circle at 20% 0%, rgba(99, 102, 241, 0.1), transparent 40%),
+                radial-gradient(circle at 80% 100%, rgba(20, 184, 166, 0.08), transparent 40%);
             z-index: -10; pointer-events: none;
         }
 
-        /* Bento Box Cards */
+        /* Modern Bento Cards */
         .bento-card {
             background: rgba(255, 255, 255, 0.02);
             border: 1px solid rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(12px);
+            backdrop-filter: blur(16px);
             border-radius: 1.5rem;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .bento-card:hover {
-            border-color: rgba(139, 92, 246, 0.3);
+            border-color: rgba(99, 102, 241, 0.4);
             background: rgba(255, 255, 255, 0.04);
             transform: translateY(-5px);
+            box-shadow: 0 10px 40px -10px rgba(99, 102, 241, 0.2);
         }
 
         /* Glass Navbar */
         .glass-nav {
-            background: rgba(5, 5, 5, 0.7);
-            backdrop-filter: blur(16px);
+            background: rgba(3, 3, 3, 0.7);
+            backdrop-filter: blur(20px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #050505; }
-        ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #555; }
     </style>
 </head>
 <body class="antialiased selection:bg-primary selection:text-white">
@@ -92,203 +86,209 @@
                 <span class="text-xl font-bold tracking-tight">AuraGrades</span>
             </a>
             
-            <div class="hidden md:flex items-center gap-6 font-medium text-sm text-gray-400">
+            <div class="hidden md:flex items-center gap-8 font-medium text-sm text-gray-400">
                 <a href="#services" class="hover:text-white transition-colors">Services</a>
+                <a href="#trust" class="hover:text-white transition-colors">Why Trust Us?</a>
                 <a href="#workflow" class="hover:text-white transition-colors">How it Works</a>
-                <a href="#vouches" class="hover:text-white transition-colors">Vouches</a>
             </div>
 
-            <a href="https://wa.me/917005199436" target="_blank" class="bg-white text-black px-5 py-2 rounded-full font-bold text-sm hover:scale-105 transition-transform flex items-center gap-2">
-                Drop Task <i class="fa-solid fa-arrow-right"></i>
+            <a href="https://wa.me/917005199436" target="_blank" class="bg-white text-black px-5 py-2.5 rounded-full font-bold text-sm hover:bg-gray-200 transition-colors flex items-center gap-2 shadow-[0_0_15px_rgba(255,255,255,0.2)]">
+                Get a Quote <i class="fa-solid fa-arrow-right"></i>
             </a>
         </div>
     </nav>
 
     <!-- HERO SECTION -->
-    <section class="pt-32 pb-16 px-4 sm:px-6 max-w-7xl mx-auto animate-fade-in-up">
-        <div class="text-center max-w-4xl mx-auto">
-            <!-- Live Status Badge -->
-            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface border border-gray-800 text-xs font-semibold mb-8">
-                <span class="relative flex h-2 w-2">
-                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                  <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-                </span>
-                4 Elite Experts Online Right Now
+    <section class="pt-36 pb-16 px-4 sm:px-6 max-w-7xl mx-auto opacity-0 animate-fade-in-up">
+        <div class="text-center max-w-5xl mx-auto">
+            <!-- Global Trust Badge -->
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface border border-gray-800 text-xs font-semibold mb-8 text-accent">
+                <i class="fa-solid fa-globe"></i> Trusted by Students Worldwide
             </div>
 
             <h1 class="text-5xl md:text-7xl font-bold tracking-tighter leading-[1.1] mb-6">
-                Lock In Your A+ <br />
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-purple-400 to-accent">Without The Grind.</span>
+                Any Project. Any Degree. <br />
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-purple-400 to-accent">Executed Perfectly.</span>
             </h1>
             
-            <p class="text-gray-400 text-lg md:text-xl mb-10 max-w-2xl mx-auto">
-                Confidential. Plagiarism-Free. Delivered on time. We handle the heavy lifting for your BCA projects, assignments, and case studies at student-friendly prices.
+            <p class="text-gray-400 text-lg md:text-xl mb-10 max-w-3xl mx-auto leading-relaxed">
+                From 100-page dissertations and stunning UI portfolios to complex engineering codes. We are your ultimate academic and professional execution partner. <strong class="text-white">100% Original. Zero Plagiarism. Total Anonymity.</strong>
             </p>
 
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a href="https://wa.me/917005199436" target="_blank" class="w-full sm:w-auto bg-whatsapp text-white px-8 py-4 rounded-full font-bold text-lg hover:shadow-[0_0_20px_rgba(37,211,102,0.3)] hover:-translate-y-1 transition-all flex items-center justify-center gap-2">
                     <i class="fa-brands fa-whatsapp text-xl"></i> Message on WhatsApp
                 </a>
-                <a href="#services" class="w-full sm:w-auto bg-surface border border-gray-800 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-900 transition-all text-center">
-                    View Arsenal
+                <a href="#trust" class="w-full sm:w-auto bg-surface border border-gray-800 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-900 transition-all text-center">
+                    See Guarantees
                 </a>
-            </div>
-
-            <!-- Trust Badges -->
-            <div class="mt-12 pt-8 border-t border-gray-900 flex flex-wrap justify-center gap-8 text-sm text-gray-500 font-medium">
-                <span class="flex items-center gap-2"><i class="fa-solid fa-fingerprint text-primary"></i> 100% Anonymous</span>
-                <span class="flex items-center gap-2"><i class="fa-solid fa-robot text-accent"></i> 0% AI Content</span>
-                <span class="flex items-center gap-2"><i class="fa-solid fa-bolt text-yellow-500"></i> Instant Delivery Ops</span>
             </div>
         </div>
     </section>
 
-    <!-- TECH STACK MARQUEE -->
-    <div class="w-full overflow-hidden border-y border-gray-900 bg-surface/50 py-4 mb-20 relative">
-        <div class="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-dark to-transparent z-10"></div>
-        <div class="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-dark to-transparent z-10"></div>
-        <div class="flex whitespace-nowrap animate-marquee items-center gap-12 text-gray-600 text-2xl">
-            <!-- Duplicated for infinite scroll effect -->
-            <i class="fa-brands fa-python"></i> <span class="font-bold text-sm uppercase">Python</span>
-            <i class="fa-brands fa-react"></i> <span class="font-bold text-sm uppercase">React.js</span>
-            <i class="fa-brands fa-js"></i> <span class="font-bold text-sm uppercase">JavaScript</span>
-            <i class="fa-brands fa-java"></i> <span class="font-bold text-sm uppercase">Java & C++</span>
-            <i class="fa-solid fa-chart-line"></i> <span class="font-bold text-sm uppercase">Meta Ads</span>
-            <i class="fa-solid fa-database"></i> <span class="font-bold text-sm uppercase">SQL & DBMS</span>
-            <i class="fa-solid fa-pen-nib"></i> <span class="font-bold text-sm uppercase">Case Studies</span>
-            
-            <i class="fa-brands fa-python"></i> <span class="font-bold text-sm uppercase">Python</span>
-            <i class="fa-brands fa-react"></i> <span class="font-bold text-sm uppercase">React.js</span>
-            <i class="fa-brands fa-js"></i> <span class="font-bold text-sm uppercase">JavaScript</span>
-            <i class="fa-brands fa-java"></i> <span class="font-bold text-sm uppercase">Java & C++</span>
-            <i class="fa-solid fa-chart-line"></i> <span class="font-bold text-sm uppercase">Meta Ads</span>
-            <i class="fa-solid fa-database"></i> <span class="font-bold text-sm uppercase">SQL & DBMS</span>
-            <i class="fa-solid fa-pen-nib"></i> <span class="font-bold text-sm uppercase">Case Studies</span>
+    <!-- INFINITE MARQUEE (ALL SERVICES) -->
+    <div class="w-full overflow-hidden border-y border-gray-900 bg-surface/50 py-5 mb-24 relative">
+        <div class="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-dark to-transparent z-10"></div>
+        <div class="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-dark to-transparent z-10"></div>
+        
+        <div class="flex w-[200%] animate-marquee items-center text-gray-500 text-lg">
+            <!-- First Set -->
+            <div class="flex w-1/2 justify-around items-center">
+                <span class="font-bold uppercase tracking-widest"><i class="fa-solid fa-pen-nib mr-2"></i> Essays & Reports</span>
+                <span class="font-bold uppercase tracking-widest text-primary"><i class="fa-solid fa-code mr-2"></i> Programming</span>
+                <span class="font-bold uppercase tracking-widest"><i class="fa-solid fa-chart-pie mr-2"></i> Pitch Decks & PPTs</span>
+                <span class="font-bold uppercase tracking-widest text-accent"><i class="fa-solid fa-swatchbook mr-2"></i> Portfolios</span>
+                <span class="font-bold uppercase tracking-widest"><i class="fa-solid fa-magnifying-glass-chart mr-2"></i> Case Studies</span>
+                <span class="font-bold uppercase tracking-widest"><i class="fa-solid fa-book-open mr-2"></i> Thesis Writing</span>
+            </div>
+            <!-- Second Set (Duplicate for smooth looping) -->
+            <div class="flex w-1/2 justify-around items-center">
+                <span class="font-bold uppercase tracking-widest"><i class="fa-solid fa-pen-nib mr-2"></i> Essays & Reports</span>
+                <span class="font-bold uppercase tracking-widest text-primary"><i class="fa-solid fa-code mr-2"></i> Programming</span>
+                <span class="font-bold uppercase tracking-widest"><i class="fa-solid fa-chart-pie mr-2"></i> Pitch Decks & PPTs</span>
+                <span class="font-bold uppercase tracking-widest text-accent"><i class="fa-solid fa-swatchbook mr-2"></i> Portfolios</span>
+                <span class="font-bold uppercase tracking-widest"><i class="fa-solid fa-magnifying-glass-chart mr-2"></i> Case Studies</span>
+                <span class="font-bold uppercase tracking-widest"><i class="fa-solid fa-book-open mr-2"></i> Thesis Writing</span>
+            </div>
         </div>
     </div>
 
-    <!-- BENTO GRID SERVICES -->
+    <!-- GLOBAL SERVICES (BENTO GRID) -->
     <section id="services" class="px-4 sm:px-6 max-w-7xl mx-auto mb-32">
-        <h2 class="text-3xl md:text-5xl font-bold mb-2">The <span class="text-primary">Arsenal</span></h2>
-        <p class="text-gray-400 mb-10">Select your battlefield. We dominate them all.</p>
+        <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-5xl font-bold mb-4">Our <span class="text-primary">Global Services</span></h2>
+            <p class="text-gray-400">Whatever your major is, we have a top-tier expert ready to execute it.</p>
+        </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
             
-            <!-- Large Card 1 -->
-            <div class="bento-card p-8 md:col-span-2 relative overflow-hidden group">
-                <div class="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 group-hover:bg-primary/20 transition-colors"></div>
-                <div class="relative z-10">
-                    <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center text-2xl mb-6"><i class="fa-solid fa-code"></i></div>
-                    <h3 class="text-2xl font-bold mb-2">Dev & Programming (BCA/B.Tech)</h3>
-                    <p class="text-gray-400 mb-6 max-w-md">Full-stack web apps, C++/Java algorithms, Python scripts, Database schemas, and GitHub/Hostinger deployments. Code that compiles on the first run.</p>
-                    <span class="bg-primary/20 text-primary text-xs font-bold px-3 py-1 rounded-md uppercase tracking-wider">Top Request</span>
+            <!-- Writing & Research (Large) -->
+            <div class="bento-card p-8 md:col-span-2 group">
+                <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center text-2xl mb-6 text-white"><i class="fa-solid fa-feather"></i></div>
+                <h3 class="text-2xl font-bold mb-3">Academic Writing & Research</h3>
+                <p class="text-gray-400 mb-6 max-w-lg">Dissertations, Thesis, Research Papers, Essays, and Lab Reports. Perfectly formatted in APA, MLA, or Harvard styles. We provide premium Turnitin reports with every document to prove 0% plagiarism.</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="px-3 py-1 bg-surface border border-gray-800 rounded-md text-xs font-semibold">Literature Reviews</span>
+                    <span class="px-3 py-1 bg-surface border border-gray-800 rounded-md text-xs font-semibold">Essays</span>
+                    <span class="px-3 py-1 bg-surface border border-gray-800 rounded-md text-xs font-semibold">Thesis</span>
                 </div>
             </div>
 
-            <!-- Small Card 1 -->
-            <div class="bento-card p-8 group flex flex-col justify-between">
-                <div>
-                    <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center text-2xl mb-6"><i class="fa-solid fa-bullhorn text-accent"></i></div>
-                    <h3 class="text-xl font-bold mb-2">Digital Marketing</h3>
-                    <p class="text-gray-400 text-sm">Meta Ads strategy reports, SEO audits, and lead-gen campaigns.</p>
-                </div>
+            <!-- Tech & Engineering -->
+            <div class="bento-card p-8 group relative overflow-hidden">
+                <div class="absolute -right-4 -top-4 w-24 h-24 bg-primary/20 blur-2xl rounded-full"></div>
+                <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center text-2xl mb-6 text-primary"><i class="fa-solid fa-laptop-code"></i></div>
+                <h3 class="text-xl font-bold mb-3">Tech & Engineering</h3>
+                <p class="text-gray-400 text-sm mb-4">Full-stack web development, Python, Java, Database schemas, and complex engineering algorithms.</p>
             </div>
 
-            <!-- Small Card 2 -->
-            <div class="bento-card p-8 group flex flex-col justify-between">
-                <div>
-                    <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center text-2xl mb-6"><i class="fa-solid fa-file-signature text-pink-400"></i></div>
-                    <h3 class="text-xl font-bold mb-2">Essays & Case Studies</h3>
-                    <p class="text-gray-400 text-sm">MBA reports, literature reviews, properly formatted (APA/MLA).</p>
-                </div>
+            <!-- Presentations & Portfolios -->
+            <div class="bento-card p-8 group relative overflow-hidden">
+                <div class="absolute -left-4 -bottom-4 w-24 h-24 bg-accent/20 blur-2xl rounded-full"></div>
+                <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center text-2xl mb-6 text-accent"><i class="fa-solid fa-palette"></i></div>
+                <h3 class="text-xl font-bold mb-3">Presentations & Portfolios</h3>
+                <p class="text-gray-400 text-sm mb-4">High-impact PPTs, Canva designs, Architecture/Design Portfolios, and stunning UI/UX case studies.</p>
             </div>
 
-            <!-- Large Card 2 -->
-            <div class="bento-card p-8 md:col-span-2 relative overflow-hidden group">
-                <div class="absolute bottom-0 right-0 w-64 h-64 bg-accent/10 rounded-full blur-3xl translate-y-1/2 translate-x-1/2 group-hover:bg-accent/20 transition-colors"></div>
-                <div class="relative z-10 flex flex-col md:flex-row gap-8 items-center justify-between">
-                    <div>
-                        <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center text-2xl mb-6"><i class="fa-solid fa-bolt text-yellow-400"></i></div>
-                        <h3 class="text-2xl font-bold mb-2">Instant Emergency Ops</h3>
-                        <p class="text-gray-400 mb-6 max-w-sm">Deadline in 4 hours? Skip the queue. Dedicated experts drop everything to execute your task immediately.</p>
-                        <a href="https://wa.me/917005199436" class="text-sm font-bold text-white hover:text-accent transition-colors">Deploy Now <i class="fa-solid fa-arrow-right"></i></a>
-                    </div>
-                    <div class="w-full md:w-48 p-4 bg-black/50 rounded-xl border border-gray-800 text-center">
-                        <div class="text-3xl font-black text-white mb-1">03:59:59</div>
-                        <div class="text-xs text-red-400 font-bold tracking-widest uppercase animate-pulse">Time Remaining</div>
-                    </div>
+            <!-- Business & Finance (Large) -->
+            <div class="bento-card p-8 md:col-span-2 group">
+                <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center text-2xl mb-6 text-yellow-400"><i class="fa-solid fa-chart-line"></i></div>
+                <h3 class="text-2xl font-bold mb-3">Business, Management & Finance</h3>
+                <p class="text-gray-400 mb-6 max-w-lg">MBA-level Case Studies, Marketing Plans, Financial Modeling, SEO Audits, and Business Proposals. Real-world data analysis tailored for top business schools.</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="px-3 py-1 bg-surface border border-gray-800 rounded-md text-xs font-semibold">Marketing</span>
+                    <span class="px-3 py-1 bg-surface border border-gray-800 rounded-md text-xs font-semibold">Finance Models</span>
+                    <span class="px-3 py-1 bg-surface border border-gray-800 rounded-md text-xs font-semibold">Case Studies</span>
                 </div>
             </div>
 
         </div>
     </section>
 
-    <!-- HOW IT WORKS -->
+    <!-- TRUST & GUARANTEES SECTION -->
+    <section id="trust" class="px-4 sm:px-6 max-w-7xl mx-auto mb-32">
+        <div class="bg-surface border border-gray-800 rounded-3xl p-8 md:p-16 relative overflow-hidden">
+            <!-- Decorative blur -->
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-primary/5 blur-[100px] rounded-full pointer-events-none"></div>
+            
+            <div class="relative z-10">
+                <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">Why 10,000+ Students <span class="text-primary">Trust Us</span></h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Trust 1 -->
+                    <div class="text-center">
+                        <div class="w-16 h-16 mx-auto bg-green-500/10 text-green-400 rounded-full flex items-center justify-center text-2xl mb-4 border border-green-500/20">
+                            <i class="fa-solid fa-robot"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">Zero AI Guarantee</h4>
+                        <p class="text-gray-400 text-sm">We provide official Turnitin and ZeroGPT reports to prove 100% human-written content.</p>
+                    </div>
+                    
+                    <!-- Trust 2 -->
+                    <div class="text-center">
+                        <div class="w-16 h-16 mx-auto bg-blue-500/10 text-blue-400 rounded-full flex items-center justify-center text-2xl mb-4 border border-blue-500/20">
+                            <i class="fa-solid fa-user-secret"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">Total Anonymity</h4>
+                        <p class="text-gray-400 text-sm">AES-256 encryption. We never ask for your college name, and all files are deleted post-delivery.</p>
+                    </div>
+
+                    <!-- Trust 3 -->
+                    <div class="text-center">
+                        <div class="w-16 h-16 mx-auto bg-yellow-500/10 text-yellow-400 rounded-full flex items-center justify-center text-2xl mb-4 border border-yellow-500/20">
+                            <i class="fa-solid fa-rotate-left"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">Unlimited Revisions</h4>
+                        <p class="text-gray-400 text-sm">Not happy? Professor asked for changes? We fix it for free until you get the perfect grade.</p>
+                    </div>
+
+                    <!-- Trust 4 -->
+                    <div class="text-center">
+                        <div class="w-16 h-16 mx-auto bg-red-500/10 text-red-400 rounded-full flex items-center justify-center text-2xl mb-4 border border-red-500/20">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">Money-Back Safety</h4>
+                        <p class="text-gray-400 text-sm">If we miss your deadline or fail to follow the initial rubric, you get a 100% refund. No questions asked.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS (SIMPLE 3 STEPS) -->
     <section id="workflow" class="px-4 sm:px-6 max-w-7xl mx-auto mb-32">
-        <h2 class="text-3xl font-bold mb-10 text-center">The <span class="text-primary">Workflow</span></h2>
+        <h2 class="text-3xl font-bold mb-12 text-center">The <span class="text-accent">Workflow</span></h2>
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 relative">
-            <!-- Connecting Line (Desktop) -->
-            <div class="hidden md:block absolute top-1/2 left-[10%] right-[10%] h-0.5 bg-gray-800 -translate-y-1/2 z-0"></div>
+            <div class="hidden md:block absolute top-8 left-[15%] right-[15%] h-[1px] bg-gray-800 -z-10"></div>
 
-            <div class="bento-card p-6 text-center z-10 bg-dark">
-                <div class="w-16 h-16 rounded-full bg-surface border border-gray-800 flex items-center justify-center text-2xl font-black mx-auto mb-4">1</div>
-                <h4 class="font-bold text-lg mb-2">Drop The Prompt</h4>
-                <p class="text-gray-400 text-sm">Send your syllabus, rubric, or assignment question on WhatsApp.</p>
+            <div class="text-center bg-dark/50 p-6 rounded-2xl border border-gray-900">
+                <div class="w-12 h-12 rounded-full bg-surface border border-gray-700 flex items-center justify-center text-xl font-bold mx-auto mb-6 text-gray-300">1</div>
+                <h4 class="font-bold text-xl mb-3">Drop Your Prompt</h4>
+                <p class="text-gray-400 text-sm">Message us on WhatsApp with your topic, rubric, and deadline. Any subject, any degree.</p>
             </div>
 
-            <div class="bento-card p-6 text-center z-10 bg-dark">
-                <div class="w-16 h-16 rounded-full bg-surface border border-gray-800 flex items-center justify-center text-2xl font-black mx-auto mb-4 text-accent">2</div>
-                <h4 class="font-bold text-lg mb-2">Lock It In</h4>
-                <p class="text-gray-400 text-sm">Get an instant low-cost quote. Confirm the deadline. We start grinding.</p>
+            <div class="text-center bg-dark/50 p-6 rounded-2xl border border-gray-900">
+                <div class="w-12 h-12 rounded-full bg-surface border border-primary flex items-center justify-center text-xl font-bold mx-auto mb-6 text-primary shadow-[0_0_15px_rgba(99,102,241,0.3)]">2</div>
+                <h4 class="font-bold text-xl mb-3">Get a Quote & Relax</h4>
+                <p class="text-gray-400 text-sm">We assign a verified domain expert immediately. You get a budget-friendly quote.</p>
             </div>
 
-            <div class="bento-card p-6 text-center z-10 bg-dark">
-                <div class="w-16 h-16 rounded-full bg-surface border border-primary flex items-center justify-center text-2xl font-black mx-auto mb-4 text-primary">3</div>
-                <h4 class="font-bold text-lg mb-2">Secure The Bag</h4>
-                <p class="text-gray-400 text-sm">Receive your 100% original file before the deadline. Submit and chill.</p>
+            <div class="text-center bg-dark/50 p-6 rounded-2xl border border-gray-900">
+                <div class="w-12 h-12 rounded-full bg-surface border border-accent flex items-center justify-center text-xl font-bold mx-auto mb-6 text-accent shadow-[0_0_15px_rgba(20,184,166,0.3)]">3</div>
+                <h4 class="font-bold text-xl mb-3">Secure the Bag</h4>
+                <p class="text-gray-400 text-sm">Receive your A+ grade material before the deadline, along with plagiarism reports. Submit & chill.</p>
             </div>
         </div>
     </section>
 
-    <!-- DISCORD STYLE VOUCHES -->
-    <section id="vouches" class="px-4 sm:px-6 max-w-7xl mx-auto mb-32">
-        <h2 class="text-3xl font-bold mb-10">Real <span class="text-accent">Vouches</span></h2>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div class="bg-[#2B2D31] p-4 rounded-xl flex gap-4">
-                <img src="https://ui-avatars.com/api/?name=Rahul+K&background=random" class="w-10 h-10 rounded-full" alt="avatar">
-                <div>
-                    <div class="flex items-baseline gap-2 mb-1">
-                        <span class="font-medium text-[#F2F3F5]">Rahul_K</span>
-                        <span class="text-xs text-[#949BA4]">Today at 10:14 AM</span>
-                    </div>
-                    <p class="text-[#DBDEE1] text-sm">Bro clutched my BCA Java project in 5 hours. Code works perfectly, even added comments. W service 🚀</p>
-                </div>
-            </div>
-
-            <div class="bg-[#2B2D31] p-4 rounded-xl flex gap-4">
-                <img src="https://ui-avatars.com/api/?name=Sneha+M&background=random" class="w-10 h-10 rounded-full" alt="avatar">
-                <div>
-                    <div class="flex items-baseline gap-2 mb-1">
-                        <span class="font-medium text-[#F2F3F5]">Sneha M.</span>
-                        <span class="text-xs text-[#949BA4]">Yesterday at 8:30 PM</span>
-                    </div>
-                    <p class="text-[#DBDEE1] text-sm">The Marketing Case Study was structured perfectly. Got an A. Will order again next semester.</p>
-                </div>
-            </div>
-
-            <div class="bg-[#2B2D31] p-4 rounded-xl flex gap-4 md:col-span-2">
-                <img src="https://ui-avatars.com/api/?name=Arjun&background=random" class="w-10 h-10 rounded-full" alt="avatar">
-                <div>
-                    <div class="flex items-baseline gap-2 mb-1">
-                        <span class="font-medium text-[#F2F3F5]">Arjun</span>
-                        <span class="text-xs text-[#949BA4]">11/14/2026</span>
-                    </div>
-                    <p class="text-[#DBDEE1] text-sm">I was terrified about getting caught for AI. They sent a ZeroGPT screenshot with the essay. Fully legit and super cheap compared to others.</p>
-                </div>
-            </div>
-        </div>
+    <!-- CTA SECTION -->
+    <section class="px-4 sm:px-6 max-w-4xl mx-auto mb-32 text-center">
+        <h2 class="text-4xl font-bold mb-6">Stop Stressing Over Deadlines.</h2>
+        <p class="text-gray-400 mb-8 text-lg">Our experts are online right now. Let's get your project done.</p>
+        <a href="https://wa.me/917005199436" target="_blank" class="inline-flex items-center gap-3 bg-white text-black px-10 py-5 rounded-full font-bold text-xl hover:scale-105 transition-transform shadow-[0_0_30px_rgba(255,255,255,0.2)]">
+            <i class="fa-brands fa-whatsapp text-2xl text-green-500"></i> Drop Your Task Now
+        </a>
     </section>
 
     <!-- FOOTER -->
@@ -296,30 +296,19 @@
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
             <div>
                 <span class="text-2xl font-bold tracking-tight">AuraGrades</span>
-                <p class="text-gray-500 text-sm mt-2">The Gen-Z standard for academic excellence.</p>
+                <p class="text-gray-500 text-sm mt-2">Global Academic & Professional Execution Partner.</p>
             </div>
             
             <div class="flex gap-4">
-                <a href="https://wa.me/917005199436" target="_blank" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-whatsapp hover:text-white transition-colors text-gray-400">
+                <a href="https://wa.me/917005199436" target="_blank" class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center hover:bg-whatsapp hover:text-white transition-colors text-gray-400 text-xl">
                     <i class="fa-brands fa-whatsapp"></i>
                 </a>
-                <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary hover:text-white transition-colors text-gray-400">
-                    <i class="fa-brands fa-instagram"></i>
+                <a href="mailto:support@auragrades.com" class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary hover:text-white transition-colors text-gray-400 text-xl">
+                    <i class="fa-solid fa-envelope"></i>
                 </a>
             </div>
         </div>
         <div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-gray-900 text-center text-xs text-gray-600 font-medium">
-            <a href="#" class="hover:text-gray-400 mr-4">Terms of Service</a>
-            <a href="#" class="hover:text-gray-400 mr-4">Privacy Policy</a>
-            <a href="#" class="hover:text-gray-400">Refund Policy</a>
-            <p class="mt-4">&copy; 2026 AuraGrades. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <!-- STICKY MOBILE WHATSAPP FAB -->
-    <a href="https://wa.me/917005199436" target="_blank" class="md:hidden fixed bottom-6 right-6 w-14 h-14 bg-whatsapp text-white rounded-full flex items-center justify-center text-3xl shadow-[0_4px_20px_rgba(37,211,102,0.4)] z-[100] animate-bounce">
-        <i class="fa-brands fa-whatsapp"></i>
-    </a>
-
-</body>
-</html>
+            <a href="#" class="hover:text-gray-400 mr-4 transition-colors">Terms of Service</a>
+            <a href="#" class="hover:text-gray-400 mr-4 transition-colors">Privacy Policy</a>
+            <a href="#" class="hover:text-gray-400 transition-colors">Refun
