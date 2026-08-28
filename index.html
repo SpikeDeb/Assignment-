@@ -3,259 +3,314 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zylo | #1 Gen-Z Academic Partner</title>
+    <title>AuraGrades | Elite Academic & Project Solutions</title>
+    
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&display=swap" rel="stylesheet">
     
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: { sans: ['Inter', 'sans-serif'] },
-                    animation: {
-                        'blob': 'blob 20s infinite alternate',
-                        'blob-reverse': 'blob-reverse 25s infinite alternate',
-                    },
-                    keyframes: {
-                        blob: {
-                            '0%': { transform: 'scale(1) rotate(0deg)' },
-                            '100%': { transform: 'scale(1.2) rotate(90deg)' }
-                        },
-                        'blob-reverse': {
-                            '0%': { transform: 'scale(1) rotate(0deg)' },
-                            '100%': { transform: 'scale(1.5) rotate(-90deg)' }
-                        }
+                    fontFamily: { sans: ['Outfit', 'sans-serif'] },
+                    colors: {
+                        brand: { dark: '#0a0a0a', primary: '#6366f1', secondary: '#a855f7', accent: '#06b6d4' }
                     }
                 }
             }
         }
     </script>
+
     <style>
-        body { background-color: #020617; color: #e2e8f0; overflow-x: hidden; }
-        .tab-content { display: none; animation: fadeIn 0.5s ease-out forwards; }
-        .tab-content.active { display: block; }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        body {
+            background-color: #050505;
+            color: #ffffff;
+            overflow-x: hidden;
         }
-        /* 3D Hover Effect */
-        .card-3d { transition: transform 0.5s ease; transform-style: preserve-3d; }
-        .card-3d:hover { transform: perspective(1000px) rotateX(5deg) rotateY(-5deg) scale(1.02); }
-        /* Glassmorphism */
-        .glass { background: rgba(15, 23, 42, 0.7); backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.1); }
+
+        /* Animated Glowing Background Orbs */
+        .orb-1 {
+            position: fixed; top: -10%; left: -10%; width: 50vw; height: 50vw;
+            background: radial-gradient(circle, rgba(99,102,241,0.15) 0%, rgba(0,0,0,0) 70%);
+            border-radius: 50%; z-index: -1; animation: floatOrb 15s ease-in-out infinite;
+        }
+        .orb-2 {
+            position: fixed; bottom: -20%; right: -10%; width: 60vw; height: 60vw;
+            background: radial-gradient(circle, rgba(168,85,247,0.15) 0%, rgba(0,0,0,0) 70%);
+            border-radius: 50%; z-index: -1; animation: floatOrb 20s ease-in-out infinite reverse;
+        }
+        .orb-3 {
+            position: fixed; top: 40%; left: 30%; width: 40vw; height: 40vw;
+            background: radial-gradient(circle, rgba(6,182,212,0.1) 0%, rgba(0,0,0,0) 70%);
+            border-radius: 50%; z-index: -1; animation: pulseOrb 10s ease-in-out infinite;
+        }
+
+        @keyframes floatOrb {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(50px, 50px) scale(1.1); }
+        }
+        @keyframes pulseOrb {
+            0%, 100% { opacity: 0.5; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        /* Glassmorphism & 3D Cards */
+        .glass-nav {
+            background: rgba(10, 10, 10, 0.6);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .card-3d {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform-style: preserve-3d;
+        }
+        .card-3d:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: rgba(99,102,241,0.5);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5), inset 0 0 20px rgba(99,102,241,0.1);
+        }
+        
+        /* Floating Animation for Hero Objects */
+        .float-animation { animation: float 6s ease-in-out infinite; }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Scroll Reveal Hal-Chal */
+        .reveal { opacity: 0; transform: translateY(50px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-fab {
+            position: fixed; bottom: 30px; right: 30px; z-index: 100;
+            animation: pulse-whatsapp 2s infinite;
+        }
+        @keyframes pulse-whatsapp {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
     </style>
 </head>
-<body class="selection:bg-purple-500/30">
+<body class="antialiased selection:bg-brand-secondary selection:text-white">
 
-    <div class="fixed inset-0 pointer-events-none z-0 opacity-40 mix-blend-screen">
-        <div class="absolute -top-[20%] -left-[10%] w-[50vw] h-[50vw] rounded-full bg-gradient-to-br from-violet-600/40 to-fuchsia-600/40 blur-[120px] animate-blob"></div>
-        <div class="absolute top-[40%] -right-[10%] w-[40vw] h-[40vw] rounded-full bg-gradient-to-br from-cyan-600/40 to-blue-600/40 blur-[120px] animate-blob-reverse"></div>
-    </div>
+    <!-- Background Animations -->
+    <div class="orb-1"></div>
+    <div class="orb-2"></div>
+    <div class="orb-3"></div>
 
-    <nav class="fixed top-0 w-full z-50 glass border-b border-white/10">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300" id="navbar">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="flex items-center gap-3 cursor-pointer" onclick="switchTab('home')">
-                <div class="w-12 h-12 bg-gradient-to-br from-violet-500 to-cyan-500 rounded-xl flex items-center justify-center shadow-lg transform rotate-3">
-                    <span class="text-white font-black text-xl">Z.</span>
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-primary to-brand-accent flex items-center justify-center transform group-hover:rotate-12 transition-transform">
+                    <i class="fa-solid fa-bolt text-white text-xl"></i>
                 </div>
-                <span class="text-2xl font-black bg-clip-text text-transparent bg-gradient-to-r from-white to-slate-400">Zylo</span>
-            </div>
+                <span class="text-2xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">AuraGrades</span>
+            </a>
             
-            <div class="hidden md:flex gap-8 items-center bg-white/5 px-6 py-2 rounded-full border border-white/10">
-                <button onclick="switchTab('home')" class="nav-btn text-white drop-shadow-md text-sm font-semibold transition-all">Home</button>
-                <button onclick="switchTab('services')" class="nav-btn text-slate-400 hover:text-white text-sm font-semibold transition-all">Services</button>
-                <button onclick="switchTab('experts')" class="nav-btn text-slate-400 hover:text-white text-sm font-semibold transition-all">Experts</button>
-                <button onclick="switchTab('faq')" class="nav-btn text-slate-400 hover:text-white text-sm font-semibold transition-all">FAQ</button>
-                <button onclick="switchTab('legal')" class="nav-btn text-slate-400 hover:text-white text-sm font-semibold transition-all">Legal</button>
+            <div class="hidden md:flex items-center gap-8 font-semibold text-sm text-gray-300">
+                <a href="#services" class="hover:text-white transition-colors">Our Services</a>
+                <a href="#features" class="hover:text-white transition-colors">Why Us</a>
+                <a href="#faq" class="hover:text-white transition-colors">FAQ</a>
             </div>
 
-            <button onclick="document.getElementById('quoteModal').classList.remove('hidden')" class="bg-white text-slate-950 px-6 py-2.5 rounded-full font-bold text-sm hover:scale-105 transition-transform shadow-[0_0_15px_rgba(255,255,255,0.3)]">
-                Drop Your Task ⚡
-            </button>
+            <a href="https://wa.me/917005199436" target="_blank" class="bg-white text-black px-6 py-2.5 rounded-full font-bold text-sm hover:scale-105 transition-transform flex items-center gap-2 shadow-[0_0_20px_rgba(255,255,255,0.2)]">
+                Drop Task <i class="fa-solid fa-arrow-right"></i>
+            </a>
         </div>
     </nav>
 
-    <main class="relative z-10 pt-32 pb-24 px-6 max-w-7xl mx-auto min-h-[85vh]">
-        
-        <div id="home" class="tab-content active space-y-32">
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
-                <div>
-                    <div class="inline-block border border-violet-500/30 bg-violet-500/10 backdrop-blur-md px-4 py-1.5 rounded-full text-violet-300 text-sm font-bold mb-6">
-                        🚀 #1 Gen-Z Academic Partner
-                    </div>
-                    <h1 class="text-6xl md:text-7xl font-black leading-[1.1] mb-6">
-                        Don't let deadlines <br />
-                        <span class="bg-clip-text text-transparent bg-gradient-to-r from-violet-400 via-cyan-400 to-emerald-400">kill your vibe.</span>
-                    </h1>
-                    <p class="text-xl text-slate-400 mb-8 max-w-lg">
-                        Top-tier solutions by verified pros. Zero plagiarism, 100% confidentiality, and guaranteed A+ grades. We grind so you don't have to.
-                    </p>
-                    <div class="flex flex-wrap gap-4">
-                        <button onclick="document.getElementById('quoteModal').classList.remove('hidden')" class="bg-gradient-to-r from-violet-600 to-indigo-600 text-white px-8 py-4 rounded-full font-bold text-lg hover:shadow-[0_0_30px_rgba(124,58,237,0.4)] transition-all flex items-center gap-2">
-                            Fix My Grades <i data-lucide="arrow-right" class="w-5 h-5"></i>
-                        </button>
-                        <a href="https://wa.me/917005199436" target="_blank" class="glass border border-slate-700 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-slate-800 transition-all flex items-center gap-2">
-                            <i data-lucide="zap" class="w-5 h-5 text-green-400"></i> WhatsApp Us
-                        </a>
-                    </div>
+    <!-- HERO SECTION -->
+    <section class="relative pt-40 pb-20 px-6 min-h-screen flex items-center">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+            <div class="z-10">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-primary/10 border border-brand-primary/30 text-brand-primary font-bold text-sm mb-6">
+                    <span class="w-2 h-2 rounded-full bg-brand-primary animate-ping"></span> Instant Service Available
                 </div>
-
-                <div class="relative group card-3d">
-                    <div class="absolute inset-0 bg-gradient-to-r from-violet-600 to-cyan-600 rounded-3xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity"></div>
-                    <div class="relative glass rounded-3xl p-10">
-                        <div class="space-y-8">
-                            <div class="flex justify-between items-center border-b border-white/10 pb-8">
-                                <div><div class="text-5xl font-black text-violet-400">4200+</div><p class="text-slate-400 font-medium mt-1">Projects Delivered</p></div>
-                                <i data-lucide="book-open" class="w-12 h-12 text-violet-500/50"></i>
-                            </div>
-                            <div class="flex justify-between items-center border-b border-white/10 pb-8">
-                                <div><div class="text-5xl font-black text-cyan-400">2150+</div><p class="text-slate-400 font-medium mt-1">Students Saved</p></div>
-                                <i data-lucide="users" class="w-12 h-12 text-cyan-500/50"></i>
-                            </div>
-                            <div class="flex justify-between items-center">
-                                <div><div class="text-5xl font-black text-emerald-400">4.9/5</div><p class="text-slate-400 font-medium mt-1">Average Rating</p></div>
-                                <div class="flex text-emerald-400">
-                                    <i data-lucide="star" class="w-6 h-6 fill-current"></i><i data-lucide="star" class="w-6 h-6 fill-current"></i>
-                                    <i data-lucide="star" class="w-6 h-6 fill-current"></i><i data-lucide="star" class="w-6 h-6 fill-current"></i><i data-lucide="star" class="w-6 h-6 fill-current"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <h1 class="text-5xl md:text-7xl font-black leading-[1.1] mb-6">
+                    Boost Your <br />
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-accent">Academic Aura.</span>
+                </h1>
+                <p class="text-lg text-gray-400 mb-8 max-w-lg leading-relaxed">
+                    Stuck with deadlines? From complex programming projects to detailed case studies, we provide 100% original, elite-quality solutions. At very low cost.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="https://wa.me/917005199436" target="_blank" class="bg-gradient-to-r from-brand-primary to-brand-secondary text-white px-8 py-4 rounded-full font-bold text-lg hover:shadow-[0_0_30px_rgba(168,85,247,0.4)] transition-all flex items-center gap-3">
+                        <i class="fa-brands fa-whatsapp text-xl"></i> WhatsApp Us Now
+                    </a>
+                </div>
+                <div class="mt-8 flex items-center gap-6 text-sm text-gray-500 font-semibold">
+                    <span class="flex items-center gap-2"><i class="fa-solid fa-check-circle text-green-500"></i> Zero Plagiarism</span>
+                    <span class="flex items-center gap-2"><i class="fa-solid fa-shield-halved text-brand-accent"></i> 100% Incognito</span>
                 </div>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-6">
-                <div class="bg-white/5 border border-white/10 p-8 rounded-2xl hover:bg-white/10 transition-colors">
-                    <i data-lucide="shield" class="w-10 h-10 text-violet-400 mb-4"></i>
-                    <h3 class="text-xl font-bold mb-2">100% Incognito</h3>
-                    <p class="text-slate-400">Bank-level encryption. Your identity stays completely hidden from colleges.</p>
+            <!-- Floating Hero Elements -->
+            <div class="relative hidden lg:block h-[500px]">
+                <div class="absolute top-10 right-10 w-64 card-3d p-6 rounded-2xl float-animation" style="animation-delay: 0s;">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 rounded-full bg-green-500/20 flex items-center justify-center text-green-400 text-xl"><i class="fa-solid fa-check"></i></div>
+                        <div><p class="font-bold">BCA Project</p><p class="text-xs text-gray-400">Delivered in 4 hours</p></div>
+                    </div>
+                    <div class="w-full h-2 bg-gray-800 rounded-full overflow-hidden"><div class="w-full h-full bg-green-500"></div></div>
                 </div>
-                <div class="bg-white/5 border border-white/10 p-8 rounded-2xl hover:bg-white/10 transition-colors">
-                    <i data-lucide="zap" class="w-10 h-10 text-violet-400 mb-4"></i>
-                    <h3 class="text-xl font-bold mb-2">Instant Service</h3>
-                    <p class="text-slate-400">Deadlines right now? We've got an elite squad ready for instant deployments.</p>
-                </div>
-                <div class="bg-white/5 border border-white/10 p-8 rounded-2xl hover:bg-white/10 transition-colors">
-                    <i data-lucide="lock" class="w-10 h-10 text-violet-400 mb-4"></i>
-                    <h3 class="text-xl font-bold mb-2">Zero AI / Plagiarism</h3>
-                    <p class="text-slate-400">Human-written, Turnitin-passed reports provided with every single task.</p>
+
+                <div class="absolute bottom-20 left-10 w-72 card-3d p-6 rounded-2xl float-animation" style="animation-delay: 1s;">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="text-4xl">🚀</div>
+                        <div><p class="font-bold">Grade A+ Secured</p><p class="text-xs text-gray-400">Marketing Case Study</p></div>
+                    </div>
+                    <div class="flex gap-1 text-yellow-400 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
                 </div>
             </div>
         </div>
+    </section>
 
-        <div id="services" class="tab-content space-y-12">
-            <div class="text-center max-w-2xl mx-auto mb-16">
-                <h2 class="text-5xl font-black mb-4">The <span class="text-blue-400">Arsenal</span></h2>
-                <p class="text-lg text-indigo-200/70">From hardcore coding to complex case studies, pick your battlefield.</p>
+    <!-- DETAILED SERVICES SECTION -->
+    <section id="services" class="py-24 px-6 relative z-10">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20 reveal">
+                <h2 class="text-4xl md:text-5xl font-black mb-4">What We <span class="text-brand-accent">Deliver</span></h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Extensive academic and technical solutions tailored for modern degrees. Very low cost, strictly confidential.</p>
             </div>
+
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="group bg-gradient-to-br from-blue-600/20 to-indigo-600/20 border border-white/10 p-8 rounded-3xl hover:-translate-y-2 transition-transform">
-                    <div class="text-5xl mb-6 transform group-hover:scale-110 transition-transform">💻</div>
-                    <h3 class="text-2xl font-bold mb-3">Dev & Engineering</h3>
-                    <p class="text-indigo-200/70 mb-6 h-12">React, Node, Python, C++, ML Models, AutoCAD</p>
-                    <div class="flex justify-between items-end border-t border-white/10 pt-6">
-                        <div><span class="block text-sm text-indigo-300">Pricing & Delivery</span><span class="text-xl font-black">Very Low Cost • Instant</span></div>
-                        <a href="https://wa.me/917005199436" target="_blank" class="w-12 h-12 rounded-full bg-white text-indigo-950 flex items-center justify-center hover:scale-110"><i data-lucide="arrow-right" class="w-5 h-5"></i></a>
+                <!-- Service 1 -->
+                <div class="card-3d p-8 rounded-3xl reveal">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-primary/20 flex items-center justify-center text-brand-primary text-2xl mb-6"><i class="fa-solid fa-code"></i></div>
+                    <h3 class="text-2xl font-bold mb-3">Programming & IT</h3>
+                    <p class="text-gray-400 text-sm mb-6 leading-relaxed">Full support for BCA, B.Tech & CS assignments. Java, Python, C++, Data Structures, Database Design, and algorithms.</p>
+                    <div class="pt-4 border-t border-gray-800 flex justify-between items-center">
+                        <span class="text-xs font-bold bg-gray-800 px-3 py-1 rounded-full">Instant Delivery</span>
                     </div>
                 </div>
-                <div class="group bg-gradient-to-br from-emerald-600/20 to-teal-600/20 border border-white/10 p-8 rounded-3xl hover:-translate-y-2 transition-transform">
-                    <div class="text-5xl mb-6 transform group-hover:scale-110 transition-transform">📈</div>
-                    <h3 class="text-2xl font-bold mb-3">Business & Finance</h3>
-                    <p class="text-indigo-200/70 mb-6 h-12">MBA Case Studies, Financial Modeling, Strategy</p>
-                    <div class="flex justify-between items-end border-t border-white/10 pt-6">
-                        <div><span class="block text-sm text-indigo-300">Pricing & Delivery</span><span class="text-xl font-black">Very Low Cost • Instant</span></div>
-                        <a href="https://wa.me/917005199436" target="_blank" class="w-12 h-12 rounded-full bg-white text-indigo-950 flex items-center justify-center hover:scale-110"><i data-lucide="arrow-right" class="w-5 h-5"></i></a>
+
+                <!-- Service 2 -->
+                <div class="card-3d p-8 rounded-3xl reveal" style="transition-delay: 100ms;">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-secondary/20 flex items-center justify-center text-brand-secondary text-2xl mb-6"><i class="fa-solid fa-laptop-code"></i></div>
+                    <h3 class="text-2xl font-bold mb-3">Web Development</h3>
+                    <p class="text-gray-400 text-sm mb-6 leading-relaxed">Complete frontend & backend projects. HTML, CSS, Tailwind, JavaScript, React, and hosting setups (GitHub Pages, Hostinger).</p>
+                    <div class="pt-4 border-t border-gray-800 flex justify-between items-center">
+                        <span class="text-xs font-bold bg-gray-800 px-3 py-1 rounded-full">Low Cost</span>
                     </div>
                 </div>
-                <div class="group bg-gradient-to-br from-orange-600/20 to-red-600/20 border border-white/10 p-8 rounded-3xl hover:-translate-y-2 transition-transform">
-                    <div class="text-5xl mb-6 transform group-hover:scale-110 transition-transform">🔬</div>
-                    <h3 class="text-2xl font-bold mb-3">Pure Sciences</h3>
-                    <p class="text-indigo-200/70 mb-6 h-12">Physics, Quantum Mech, Chemistry Lab Reports</p>
-                    <div class="flex justify-between items-end border-t border-white/10 pt-6">
-                        <div><span class="block text-sm text-indigo-300">Pricing & Delivery</span><span class="text-xl font-black">Very Low Cost • Instant</span></div>
-                        <a href="https://wa.me/917005199436" target="_blank" class="w-12 h-12 rounded-full bg-white text-indigo-950 flex items-center justify-center hover:scale-110"><i data-lucide="arrow-right" class="w-5 h-5"></i></a>
+
+                <!-- Service 3 -->
+                <div class="card-3d p-8 rounded-3xl reveal" style="transition-delay: 200ms;">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-accent/20 flex items-center justify-center text-brand-accent text-2xl mb-6"><i class="fa-solid fa-bullhorn"></i></div>
+                    <h3 class="text-2xl font-bold mb-3">Digital Marketing</h3>
+                    <p class="text-gray-400 text-sm mb-6 leading-relaxed">Meta Ads strategies, SEO reports, social media growth plans, and lead generation case studies for business students.</p>
+                    <div class="pt-4 border-t border-gray-800 flex justify-between items-center">
+                        <span class="text-xs font-bold bg-gray-800 px-3 py-1 rounded-full">Pro Level</span>
+                    </div>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="card-3d p-8 rounded-3xl reveal">
+                    <div class="w-14 h-14 rounded-2xl bg-pink-500/20 flex items-center justify-center text-pink-500 text-2xl mb-6"><i class="fa-solid fa-file-pen"></i></div>
+                    <h3 class="text-2xl font-bold mb-3">Essays & Case Studies</h3>
+                    <p class="text-gray-400 text-sm mb-6 leading-relaxed">MBA case studies, humanities essays, literature reviews, and detailed research papers with proper citations (APA, MLA).</p>
+                    <div class="pt-4 border-t border-gray-800 flex justify-between items-center">
+                        <span class="text-xs font-bold bg-gray-800 px-3 py-1 rounded-full">Zero AI</span>
+                    </div>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="card-3d p-8 rounded-3xl reveal" style="transition-delay: 100ms;">
+                    <div class="w-14 h-14 rounded-2xl bg-yellow-500/20 flex items-center justify-center text-yellow-500 text-2xl mb-6"><i class="fa-solid fa-chart-pie"></i></div>
+                    <h3 class="text-2xl font-bold mb-3">PPTs & Presentations</h3>
+                    <p class="text-gray-400 text-sm mb-6 leading-relaxed">High-impact, visually stunning PowerPoint presentations for final year projects, pitch decks, and seminar defenses.</p>
+                    <div class="pt-4 border-t border-gray-800 flex justify-between items-center">
+                        <span class="text-xs font-bold bg-gray-800 px-3 py-1 rounded-full">Instant Service</span>
+                    </div>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="card-3d p-8 rounded-3xl reveal" style="transition-delay: 200ms;">
+                    <div class="w-14 h-14 rounded-2xl bg-green-500/20 flex items-center justify-center text-green-500 text-2xl mb-6"><i class="fa-solid fa-calculator"></i></div>
+                    <h3 class="text-2xl font-bold mb-3">Math & Engineering</h3>
+                    <p class="text-gray-400 text-sm mb-6 leading-relaxed">Advanced mathematics, physics, mechanics, and core engineering problems solved step-by-step by experts.</p>
+                    <div class="pt-4 border-t border-gray-800 flex justify-between items-center">
+                        <span class="text-xs font-bold bg-gray-800 px-3 py-1 rounded-full">100% Accurate</span>
                     </div>
                 </div>
             </div>
         </div>
+    </section>
 
-        <div id="experts" class="tab-content">
-            <div class="text-center max-w-2xl mx-auto mb-16">
-                <h2 class="text-5xl font-black mb-4">Meet The <span class="text-teal-400">Titans</span></h2>
-                <p class="text-lg text-teal-100/70">Top 1% vetted professionals. Ex-professors, PhDs, and industry veterans.</p>
+    <!-- FEATURES / WHY US SECTION -->
+    <section id="features" class="py-24 px-6 relative z-10 bg-gradient-to-b from-transparent to-brand-dark">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+            <div class="reveal">
+                <h2 class="text-4xl md:text-5xl font-black mb-8">Why Students <br/><span class="text-brand-secondary">Trust Us.</span></h2>
+                <div class="space-y-6">
+                    <div class="flex gap-4">
+                        <div class="w-12 h-12 rounded-full bg-brand-primary/20 flex-shrink-0 flex items-center justify-center text-brand-primary"><i class="fa-solid fa-indian-rupee-sign"></i></div>
+                        <div><h4 class="text-xl font-bold mb-1">Very Low Cost</h4><p class="text-gray-400 text-sm">Priced specifically for student budgets. Premium quality doesn't have to break the bank.</p></div>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="w-12 h-12 rounded-full bg-green-500/20 flex-shrink-0 flex items-center justify-center text-green-500"><i class="fa-solid fa-bolt"></i></div>
+                        <div><h4 class="text-xl font-bold mb-1">Instant Service</h4><p class="text-gray-400 text-sm">Submission in 3 hours? We have dedicated experts ready to drop everything and execute your task.</p></div>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="w-12 h-12 rounded-full bg-red-500/20 flex-shrink-0 flex items-center justify-center text-red-500"><i class="fa-solid fa-user-secret"></i></div>
+                        <div><h4 class="text-xl font-bold mb-1">100% Incognito</h4><p class="text-gray-400 text-sm">Your identity is encrypted. Files are deleted post-delivery. Your college will never know.</p></div>
+                    </div>
+                </div>
             </div>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="flex gap-6 bg-teal-900/20 border border-teal-500/20 p-6 rounded-3xl">
-                    <div class="w-24 h-24 rounded-2xl bg-gradient-to-br from-teal-500 to-emerald-600 flex items-center justify-center flex-shrink-0"><i data-lucide="graduation-cap" class="w-12 h-12 text-white"></i></div>
-                    <div class="flex-1">
-                        <div class="flex justify-between items-start">
-                            <div><h3 class="text-2xl font-bold text-white">Dr. Vikram S.</h3><p class="text-teal-400 font-medium">Computer Science & AI</p></div>
-                            <div class="flex items-center gap-1 bg-teal-950 px-2 py-1 rounded-lg border border-teal-800"><i data-lucide="star" class="w-4 h-4 fill-amber-400 text-amber-400"></i><span class="font-bold">4.99</span></div>
-                        </div>
-                        <p class="text-teal-100/60 mt-2 text-sm">PhD IIT Bombay • Ex-Microsoft</p>
-                        <div class="mt-4 inline-block bg-teal-500/10 text-teal-300 px-3 py-1 rounded-full text-sm font-semibold">840+ Successfully Delivered</div>
-                    </div>
-                </div>
-                 <div class="flex gap-6 bg-teal-900/20 border border-teal-500/20 p-6 rounded-3xl">
-                    <div class="w-24 h-24 rounded-2xl bg-gradient-to-br from-teal-500 to-emerald-600 flex items-center justify-center flex-shrink-0"><i data-lucide="graduation-cap" class="w-12 h-12 text-white"></i></div>
-                    <div class="flex-1">
-                        <div class="flex justify-between items-start">
-                            <div><h3 class="text-2xl font-bold text-white">Prof. Aisha K.</h3><p class="text-teal-400 font-medium">Finance & Management</p></div>
-                            <div class="flex items-center gap-1 bg-teal-950 px-2 py-1 rounded-lg border border-teal-800"><i data-lucide="star" class="w-4 h-4 fill-amber-400 text-amber-400"></i><span class="font-bold">4.97</span></div>
-                        </div>
-                        <p class="text-teal-100/60 mt-2 text-sm">MBA IIM-A • CFA Level 3</p>
-                        <div class="mt-4 inline-block bg-teal-500/10 text-teal-300 px-3 py-1 rounded-full text-sm font-semibold">620+ Successfully Delivered</div>
-                    </div>
-                </div>
+            <div class="card-3d p-10 rounded-3xl reveal border-brand-primary/30 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-brand-primary/20 blur-3xl"></div>
+                <h3 class="text-2xl font-bold mb-6">Ready to fix your grades?</h3>
+                <p class="text-gray-400 mb-8">Send us your assignment prompt, syllabus, or project requirements directly on WhatsApp. Get a quote in 2 minutes.</p>
+                <a href="https://wa.me/917005199436" target="_blank" class="w-full bg-white text-black py-4 rounded-xl font-bold text-lg hover:bg-gray-200 transition-colors flex items-center justify-center gap-3">
+                    <i class="fa-brands fa-whatsapp text-green-500 text-2xl"></i> Message 7005199436
+                </a>
             </div>
         </div>
+    </section>
 
-        <div id="faq" class="tab-content max-w-3xl mx-auto">
-            <h2 class="text-5xl font-black mb-12 text-center">Clear The <span class="text-orange-400">Doubts</span></h2>
+    <!-- FAQ & LEGAL SECTION -->
+    <section id="faq" class="py-24 px-6 relative z-10">
+        <div class="max-w-4xl mx-auto reveal">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-black mb-4">FAQ & <span class="text-gray-500">Legal</span></h2>
+                <p class="text-gray-400">Clear policies, zero confusion.</p>
+            </div>
+            
             <div class="space-y-4">
-                <div class="border border-white/10 rounded-2xl bg-white/5 overflow-hidden">
-                    <button class="w-full flex justify-between items-center p-6 text-left hover:bg-white/5 transition-colors" onclick="this.nextElementSibling.classList.toggle('hidden')">
-                        <span class="font-bold text-lg">Is it really 100% confidential?</span>
-                        <i data-lucide="chevron-down" class="text-slate-400"></i>
-                    </button>
-                    <div class="hidden px-6 pb-6 text-slate-400">Absolute zero trail. We use AES-256 encryption. Your identity stays hidden.</div>
+                <!-- Accordion Item 1 -->
+                <div class="card-3d rounded-2xl overflow-hidden cursor-pointer accordion-item">
+                    <div class="p-6 flex justify-between items-center font-bold text-lg">
+                        <span>Is the work AI generated? (ChatGPT/Gemini)</span>
+                        <i class="fa-solid fa-chevron-down text-gray-500 transition-transform duration-300"></i>
+                    </div>
+                    <div class="px-6 pb-6 text-gray-400 text-sm hidden-content hidden">
+                        Absolutely not. We guarantee 0% AI content. Every task is crafted manually by domain experts. We even provide Turnitin & AI-detection reports upon request.
+                    </div>
                 </div>
-                <div class="border border-white/10 rounded-2xl bg-white/5 overflow-hidden">
-                    <button class="w-full flex justify-between items-center p-6 text-left hover:bg-white/5 transition-colors" onclick="this.nextElementSibling.classList.toggle('hidden')">
-                        <span class="font-bold text-lg">Are the services really affordable?</span>
-                        <i data-lucide="chevron-down" class="text-slate-400"></i>
-                    </button>
-                    <div class="hidden px-6 pb-6 text-slate-400">Yes! We operate at extremely low costs specifically designed for student budgets, with instant delivery.</div>
+                <!-- Accordion Item 2 -->
+                <div class="card-3d rounded-2xl overflow-hidden cursor-pointer accordion-item">
+                    <div class="p-6 flex justify-between items-center font-bold text-lg">
+                        <span>What if I need changes in the project?</span>
+                        <i class="fa-solid fa-chevron-down text-gray-500 transition-transform duration-300"></i>
+                    </div>
+                    <div class="px-6 pb-6 text-gray-400 text-sm hidden-content hidden">
+                        We offer free unlimited revisions. If the work does not perfectly align with the instructions you initially provided, we will fix it immediately at no extra cost.
+                    </div>
                 </div>
-            </div>
-        </div>
-
-        <div id="legal" class="tab-content max-w-4xl mx-auto space-y-12">
-            <div class="text-center mb-12">
-                <i data-lucide="scale" class="w-16 h-16 mx-auto text-gray-400 mb-6"></i>
-                <h2 class="text-4xl font-black mb-4">Legal & <span class="text-gray-400">Policies</span></h2>
-                <p class="text-gray-400">Transparency is our core. Read our commitments to you.</p>
-            </div>
-            <div class="bg-white/5 border border-white/10 rounded-3xl p-8 md:p-12 space-y-8 text-gray-300 text-sm">
-                <h3 class="text-xl font-bold text-white mb-4">1. Privacy Policy & GDPR Compliance</h3>
-                <p>We collect minimal data. Client identities are encrypted and NEVER shared with colleges.</p>
-                <h3 class="text-xl font-bold text-white mb-4">2. Refund Policy</h3>
-                <p>Refunds are initiated 100% if the deadline is missed or the assignment fails to meet the rubric.</p>
-            </div>
-        </div>
-    </main>
-
-    <div id="quoteModal" class="hidden fixed inset-0 bg-slate-950/80 backdrop-blur-md z-[100] flex items-center justify-center p-4">
-        <div class="bg-slate-900 border border-white/10 rounded-3xl w-full max-w-lg overflow-hidden shadow-2xl">
-            <div class="p-8 border-b border-white/10 bg-gradient-to-br from-violet-600/20 to-transparent">
-                <h3 class="text-3xl font-black text-white">Let's Get Started 🚀</h3>
-                <p class="text-slate-400 mt-2">Fill the details, get instant low-cost service.</p>
-            </div>
-            <div class="p-8">
-                <form class="space-y-5" onsubmit="event.preventDefault(); window.open('https://wa.me/917005199436', '_blank');">
-                    <input type="text" placeholder="Your Name" required class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-white">
-                    <textarea rows="3" placeholder="Paste your requirements..." required class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-white resize-none"></textarea>
-                    <button type="submit" class="w-full bg-white text-slate-950 font-bold py-3 rounded-xl hover:bg-slate-200">Send on WhatsApp</button>
-                </form>
-                <div class="mt-6 flex justi
+                <!-- Accordion Item 3 -->
+                <div class="card-3d rounded-2xl overflow-hidden cursor-pointer accordion-item">
+                    <div class="p-6 flex justify-between items-center font-bold text-lg">
+                        <span>Terms of Service & Refund Policy</span>
+                        <i class="fa-solid fa-chevron-down text-gray-500 transition-transform duration-300"></i>
+                    </div>
+                    <div class="px-6 pb-6 t
