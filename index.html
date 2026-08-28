@@ -5,20 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AuraGrades | Elite Academic & Project Solutions</title>
     
-    <!-- Tailwind CSS CDN -->
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome for Icons -->
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <!-- Google Fonts: Space Grotesk for that modern Tech/Gen-Z vibe -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: { sans: ['Outfit', 'sans-serif'] },
+                    fontFamily: { sans: ['Space Grotesk', 'sans-serif'] },
                     colors: {
-                        brand: { dark: '#0a0a0a', primary: '#6366f1', secondary: '#a855f7', accent: '#06b6d4' }
+                        dark: '#050505',
+                        surface: '#111111',
+                        primary: '#8b5cf6', // Violet
+                        accent: '#06b6d4',  // Cyan
+                        whatsapp: '#25D366'
+                    },
+                    animation: {
+                        'marquee': 'marquee 25s linear infinite',
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        marquee: { '0%': { transform: 'translateX(0%)' }, '100%': { transform: 'translateX(-100%)' } },
+                        fadeInUp: { '0%': { opacity: '0', transform: 'translateY(20px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } }
                     }
                 }
             }
@@ -26,291 +39,287 @@
     </script>
 
     <style>
-        body {
-            background-color: #050505;
-            color: #ffffff;
-            overflow-x: hidden;
-        }
-
-        /* Animated Glowing Background Orbs */
-        .orb-1 {
-            position: fixed; top: -10%; left: -10%; width: 50vw; height: 50vw;
-            background: radial-gradient(circle, rgba(99,102,241,0.15) 0%, rgba(0,0,0,0) 70%);
-            border-radius: 50%; z-index: -1; animation: floatOrb 15s ease-in-out infinite;
-        }
-        .orb-2 {
-            position: fixed; bottom: -20%; right: -10%; width: 60vw; height: 60vw;
-            background: radial-gradient(circle, rgba(168,85,247,0.15) 0%, rgba(0,0,0,0) 70%);
-            border-radius: 50%; z-index: -1; animation: floatOrb 20s ease-in-out infinite reverse;
-        }
-        .orb-3 {
-            position: fixed; top: 40%; left: 30%; width: 40vw; height: 40vw;
-            background: radial-gradient(circle, rgba(6,182,212,0.1) 0%, rgba(0,0,0,0) 70%);
-            border-radius: 50%; z-index: -1; animation: pulseOrb 10s ease-in-out infinite;
-        }
-
-        @keyframes floatOrb {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(50px, 50px) scale(1.1); }
-        }
-        @keyframes pulseOrb {
-            0%, 100% { opacity: 0.5; transform: scale(1); }
-            50% { opacity: 1; transform: scale(1.2); }
-        }
-
-        /* Glassmorphism & 3D Cards */
-        .glass-nav {
-            background: rgba(10, 10, 10, 0.6);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-        }
-        .card-3d {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            transform-style: preserve-3d;
-        }
-        .card-3d:hover {
-            transform: translateY(-10px) scale(1.02);
-            border-color: rgba(99,102,241,0.5);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5), inset 0 0 20px rgba(99,102,241,0.1);
-        }
+        body { background-color: #050505; color: #ffffff; overflow-x: hidden; }
         
-        /* Floating Animation for Hero Objects */
-        .float-animation { animation: float 6s ease-in-out infinite; }
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
+        /* Modern Gradient Backgrounds */
+        .bg-glow {
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+            background: 
+                radial-gradient(circle at 15% 50%, rgba(139, 92, 246, 0.08), transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(6, 182, 212, 0.08), transparent 25%);
+            z-index: -10; pointer-events: none;
         }
 
-        /* Scroll Reveal Hal-Chal */
-        .reveal { opacity: 0; transform: translateY(50px); transition: all 0.8s ease-out; }
-        .reveal.active { opacity: 1; transform: translateY(0); }
+        /* Bento Box Cards */
+        .bento-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            border-radius: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        .bento-card:hover {
+            border-color: rgba(139, 92, 246, 0.3);
+            background: rgba(255, 255, 255, 0.04);
+            transform: translateY(-5px);
+        }
 
-        /* Floating WhatsApp Button */
-        .whatsapp-fab {
-            position: fixed; bottom: 30px; right: 30px; z-index: 100;
-            animation: pulse-whatsapp 2s infinite;
+        /* Glass Navbar */
+        .glass-nav {
+            background: rgba(5, 5, 5, 0.7);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
-        @keyframes pulse-whatsapp {
-            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-            70% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
-        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #050505; }
+        ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #555; }
     </style>
 </head>
-<body class="antialiased selection:bg-brand-secondary selection:text-white">
+<body class="antialiased selection:bg-primary selection:text-white">
 
-    <!-- Background Animations -->
-    <div class="orb-1"></div>
-    <div class="orb-2"></div>
-    <div class="orb-3"></div>
+    <div class="bg-glow"></div>
 
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 glass-nav transition-all duration-300" id="navbar">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="flex items-center gap-3 group">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-primary to-brand-accent flex items-center justify-center transform group-hover:rotate-12 transition-transform">
-                    <i class="fa-solid fa-bolt text-white text-xl"></i>
+    <!-- NAVBAR -->
+    <nav class="fixed w-full z-50 glass-nav">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
+            <a href="#" class="flex items-center gap-2">
+                <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-primary to-accent flex items-center justify-center">
+                    <i class="fa-solid fa-bolt text-white text-sm"></i>
                 </div>
-                <span class="text-2xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">AuraGrades</span>
+                <span class="text-xl font-bold tracking-tight">AuraGrades</span>
             </a>
             
-            <div class="hidden md:flex items-center gap-8 font-semibold text-sm text-gray-300">
-                <a href="#services" class="hover:text-white transition-colors">Our Services</a>
-                <a href="#features" class="hover:text-white transition-colors">Why Us</a>
-                <a href="#faq" class="hover:text-white transition-colors">FAQ</a>
+            <div class="hidden md:flex items-center gap-6 font-medium text-sm text-gray-400">
+                <a href="#services" class="hover:text-white transition-colors">Services</a>
+                <a href="#workflow" class="hover:text-white transition-colors">How it Works</a>
+                <a href="#vouches" class="hover:text-white transition-colors">Vouches</a>
             </div>
 
-            <a href="https://wa.me/917005199436" target="_blank" class="bg-white text-black px-6 py-2.5 rounded-full font-bold text-sm hover:scale-105 transition-transform flex items-center gap-2 shadow-[0_0_20px_rgba(255,255,255,0.2)]">
+            <a href="https://wa.me/917005199436" target="_blank" class="bg-white text-black px-5 py-2 rounded-full font-bold text-sm hover:scale-105 transition-transform flex items-center gap-2">
                 Drop Task <i class="fa-solid fa-arrow-right"></i>
             </a>
         </div>
     </nav>
 
     <!-- HERO SECTION -->
-    <section class="relative pt-40 pb-20 px-6 min-h-screen flex items-center">
-        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
-            <div class="z-10">
-                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-primary/10 border border-brand-primary/30 text-brand-primary font-bold text-sm mb-6">
-                    <span class="w-2 h-2 rounded-full bg-brand-primary animate-ping"></span> Instant Service Available
-                </div>
-                <h1 class="text-5xl md:text-7xl font-black leading-[1.1] mb-6">
-                    Boost Your <br />
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-accent">Academic Aura.</span>
-                </h1>
-                <p class="text-lg text-gray-400 mb-8 max-w-lg leading-relaxed">
-                    Stuck with deadlines? From complex programming projects to detailed case studies, we provide 100% original, elite-quality solutions. At very low cost.
-                </p>
-                <div class="flex flex-wrap gap-4">
-                    <a href="https://wa.me/917005199436" target="_blank" class="bg-gradient-to-r from-brand-primary to-brand-secondary text-white px-8 py-4 rounded-full font-bold text-lg hover:shadow-[0_0_30px_rgba(168,85,247,0.4)] transition-all flex items-center gap-3">
-                        <i class="fa-brands fa-whatsapp text-xl"></i> WhatsApp Us Now
-                    </a>
-                </div>
-                <div class="mt-8 flex items-center gap-6 text-sm text-gray-500 font-semibold">
-                    <span class="flex items-center gap-2"><i class="fa-solid fa-check-circle text-green-500"></i> Zero Plagiarism</span>
-                    <span class="flex items-center gap-2"><i class="fa-solid fa-shield-halved text-brand-accent"></i> 100% Incognito</span>
+    <section class="pt-32 pb-16 px-4 sm:px-6 max-w-7xl mx-auto animate-fade-in-up">
+        <div class="text-center max-w-4xl mx-auto">
+            <!-- Live Status Badge -->
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface border border-gray-800 text-xs font-semibold mb-8">
+                <span class="relative flex h-2 w-2">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                </span>
+                4 Elite Experts Online Right Now
+            </div>
+
+            <h1 class="text-5xl md:text-7xl font-bold tracking-tighter leading-[1.1] mb-6">
+                Lock In Your A+ <br />
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-purple-400 to-accent">Without The Grind.</span>
+            </h1>
+            
+            <p class="text-gray-400 text-lg md:text-xl mb-10 max-w-2xl mx-auto">
+                Confidential. Plagiarism-Free. Delivered on time. We handle the heavy lifting for your BCA projects, assignments, and case studies at student-friendly prices.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="https://wa.me/917005199436" target="_blank" class="w-full sm:w-auto bg-whatsapp text-white px-8 py-4 rounded-full font-bold text-lg hover:shadow-[0_0_20px_rgba(37,211,102,0.3)] hover:-translate-y-1 transition-all flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-xl"></i> Message on WhatsApp
+                </a>
+                <a href="#services" class="w-full sm:w-auto bg-surface border border-gray-800 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-900 transition-all text-center">
+                    View Arsenal
+                </a>
+            </div>
+
+            <!-- Trust Badges -->
+            <div class="mt-12 pt-8 border-t border-gray-900 flex flex-wrap justify-center gap-8 text-sm text-gray-500 font-medium">
+                <span class="flex items-center gap-2"><i class="fa-solid fa-fingerprint text-primary"></i> 100% Anonymous</span>
+                <span class="flex items-center gap-2"><i class="fa-solid fa-robot text-accent"></i> 0% AI Content</span>
+                <span class="flex items-center gap-2"><i class="fa-solid fa-bolt text-yellow-500"></i> Instant Delivery Ops</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- TECH STACK MARQUEE -->
+    <div class="w-full overflow-hidden border-y border-gray-900 bg-surface/50 py-4 mb-20 relative">
+        <div class="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-dark to-transparent z-10"></div>
+        <div class="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-dark to-transparent z-10"></div>
+        <div class="flex whitespace-nowrap animate-marquee items-center gap-12 text-gray-600 text-2xl">
+            <!-- Duplicated for infinite scroll effect -->
+            <i class="fa-brands fa-python"></i> <span class="font-bold text-sm uppercase">Python</span>
+            <i class="fa-brands fa-react"></i> <span class="font-bold text-sm uppercase">React.js</span>
+            <i class="fa-brands fa-js"></i> <span class="font-bold text-sm uppercase">JavaScript</span>
+            <i class="fa-brands fa-java"></i> <span class="font-bold text-sm uppercase">Java & C++</span>
+            <i class="fa-solid fa-chart-line"></i> <span class="font-bold text-sm uppercase">Meta Ads</span>
+            <i class="fa-solid fa-database"></i> <span class="font-bold text-sm uppercase">SQL & DBMS</span>
+            <i class="fa-solid fa-pen-nib"></i> <span class="font-bold text-sm uppercase">Case Studies</span>
+            
+            <i class="fa-brands fa-python"></i> <span class="font-bold text-sm uppercase">Python</span>
+            <i class="fa-brands fa-react"></i> <span class="font-bold text-sm uppercase">React.js</span>
+            <i class="fa-brands fa-js"></i> <span class="font-bold text-sm uppercase">JavaScript</span>
+            <i class="fa-brands fa-java"></i> <span class="font-bold text-sm uppercase">Java & C++</span>
+            <i class="fa-solid fa-chart-line"></i> <span class="font-bold text-sm uppercase">Meta Ads</span>
+            <i class="fa-solid fa-database"></i> <span class="font-bold text-sm uppercase">SQL & DBMS</span>
+            <i class="fa-solid fa-pen-nib"></i> <span class="font-bold text-sm uppercase">Case Studies</span>
+        </div>
+    </div>
+
+    <!-- BENTO GRID SERVICES -->
+    <section id="services" class="px-4 sm:px-6 max-w-7xl mx-auto mb-32">
+        <h2 class="text-3xl md:text-5xl font-bold mb-2">The <span class="text-primary">Arsenal</span></h2>
+        <p class="text-gray-400 mb-10">Select your battlefield. We dominate them all.</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            
+            <!-- Large Card 1 -->
+            <div class="bento-card p-8 md:col-span-2 relative overflow-hidden group">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 group-hover:bg-primary/20 transition-colors"></div>
+                <div class="relative z-10">
+                    <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center text-2xl mb-6"><i class="fa-solid fa-code"></i></div>
+                    <h3 class="text-2xl font-bold mb-2">Dev & Programming (BCA/B.Tech)</h3>
+                    <p class="text-gray-400 mb-6 max-w-md">Full-stack web apps, C++/Java algorithms, Python scripts, Database schemas, and GitHub/Hostinger deployments. Code that compiles on the first run.</p>
+                    <span class="bg-primary/20 text-primary text-xs font-bold px-3 py-1 rounded-md uppercase tracking-wider">Top Request</span>
                 </div>
             </div>
 
-            <!-- Floating Hero Elements -->
-            <div class="relative hidden lg:block h-[500px]">
-                <div class="absolute top-10 right-10 w-64 card-3d p-6 rounded-2xl float-animation" style="animation-delay: 0s;">
-                    <div class="flex items-center gap-4 mb-4">
-                        <div class="w-12 h-12 rounded-full bg-green-500/20 flex items-center justify-center text-green-400 text-xl"><i class="fa-solid fa-check"></i></div>
-                        <div><p class="font-bold">BCA Project</p><p class="text-xs text-gray-400">Delivered in 4 hours</p></div>
-                    </div>
-                    <div class="w-full h-2 bg-gray-800 rounded-full overflow-hidden"><div class="w-full h-full bg-green-500"></div></div>
+            <!-- Small Card 1 -->
+            <div class="bento-card p-8 group flex flex-col justify-between">
+                <div>
+                    <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center text-2xl mb-6"><i class="fa-solid fa-bullhorn text-accent"></i></div>
+                    <h3 class="text-xl font-bold mb-2">Digital Marketing</h3>
+                    <p class="text-gray-400 text-sm">Meta Ads strategy reports, SEO audits, and lead-gen campaigns.</p>
                 </div>
+            </div>
 
-                <div class="absolute bottom-20 left-10 w-72 card-3d p-6 rounded-2xl float-animation" style="animation-delay: 1s;">
-                    <div class="flex items-center gap-4 mb-4">
-                        <div class="text-4xl">🚀</div>
-                        <div><p class="font-bold">Grade A+ Secured</p><p class="text-xs text-gray-400">Marketing Case Study</p></div>
+            <!-- Small Card 2 -->
+            <div class="bento-card p-8 group flex flex-col justify-between">
+                <div>
+                    <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center text-2xl mb-6"><i class="fa-solid fa-file-signature text-pink-400"></i></div>
+                    <h3 class="text-xl font-bold mb-2">Essays & Case Studies</h3>
+                    <p class="text-gray-400 text-sm">MBA reports, literature reviews, properly formatted (APA/MLA).</p>
+                </div>
+            </div>
+
+            <!-- Large Card 2 -->
+            <div class="bento-card p-8 md:col-span-2 relative overflow-hidden group">
+                <div class="absolute bottom-0 right-0 w-64 h-64 bg-accent/10 rounded-full blur-3xl translate-y-1/2 translate-x-1/2 group-hover:bg-accent/20 transition-colors"></div>
+                <div class="relative z-10 flex flex-col md:flex-row gap-8 items-center justify-between">
+                    <div>
+                        <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center text-2xl mb-6"><i class="fa-solid fa-bolt text-yellow-400"></i></div>
+                        <h3 class="text-2xl font-bold mb-2">Instant Emergency Ops</h3>
+                        <p class="text-gray-400 mb-6 max-w-sm">Deadline in 4 hours? Skip the queue. Dedicated experts drop everything to execute your task immediately.</p>
+                        <a href="https://wa.me/917005199436" class="text-sm font-bold text-white hover:text-accent transition-colors">Deploy Now <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
-                    <div class="flex gap-1 text-yellow-400 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <div class="w-full md:w-48 p-4 bg-black/50 rounded-xl border border-gray-800 text-center">
+                        <div class="text-3xl font-black text-white mb-1">03:59:59</div>
+                        <div class="text-xs text-red-400 font-bold tracking-widest uppercase animate-pulse">Time Remaining</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="workflow" class="px-4 sm:px-6 max-w-7xl mx-auto mb-32">
+        <h2 class="text-3xl font-bold mb-10 text-center">The <span class="text-primary">Workflow</span></h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 relative">
+            <!-- Connecting Line (Desktop) -->
+            <div class="hidden md:block absolute top-1/2 left-[10%] right-[10%] h-0.5 bg-gray-800 -translate-y-1/2 z-0"></div>
+
+            <div class="bento-card p-6 text-center z-10 bg-dark">
+                <div class="w-16 h-16 rounded-full bg-surface border border-gray-800 flex items-center justify-center text-2xl font-black mx-auto mb-4">1</div>
+                <h4 class="font-bold text-lg mb-2">Drop The Prompt</h4>
+                <p class="text-gray-400 text-sm">Send your syllabus, rubric, or assignment question on WhatsApp.</p>
+            </div>
+
+            <div class="bento-card p-6 text-center z-10 bg-dark">
+                <div class="w-16 h-16 rounded-full bg-surface border border-gray-800 flex items-center justify-center text-2xl font-black mx-auto mb-4 text-accent">2</div>
+                <h4 class="font-bold text-lg mb-2">Lock It In</h4>
+                <p class="text-gray-400 text-sm">Get an instant low-cost quote. Confirm the deadline. We start grinding.</p>
+            </div>
+
+            <div class="bento-card p-6 text-center z-10 bg-dark">
+                <div class="w-16 h-16 rounded-full bg-surface border border-primary flex items-center justify-center text-2xl font-black mx-auto mb-4 text-primary">3</div>
+                <h4 class="font-bold text-lg mb-2">Secure The Bag</h4>
+                <p class="text-gray-400 text-sm">Receive your 100% original file before the deadline. Submit and chill.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- DISCORD STYLE VOUCHES -->
+    <section id="vouches" class="px-4 sm:px-6 max-w-7xl mx-auto mb-32">
+        <h2 class="text-3xl font-bold mb-10">Real <span class="text-accent">Vouches</span></h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="bg-[#2B2D31] p-4 rounded-xl flex gap-4">
+                <img src="https://ui-avatars.com/api/?name=Rahul+K&background=random" class="w-10 h-10 rounded-full" alt="avatar">
+                <div>
+                    <div class="flex items-baseline gap-2 mb-1">
+                        <span class="font-medium text-[#F2F3F5]">Rahul_K</span>
+                        <span class="text-xs text-[#949BA4]">Today at 10:14 AM</span>
+                    </div>
+                    <p class="text-[#DBDEE1] text-sm">Bro clutched my BCA Java project in 5 hours. Code works perfectly, even added comments. W service 🚀</p>
+                </div>
+            </div>
+
+            <div class="bg-[#2B2D31] p-4 rounded-xl flex gap-4">
+                <img src="https://ui-avatars.com/api/?name=Sneha+M&background=random" class="w-10 h-10 rounded-full" alt="avatar">
+                <div>
+                    <div class="flex items-baseline gap-2 mb-1">
+                        <span class="font-medium text-[#F2F3F5]">Sneha M.</span>
+                        <span class="text-xs text-[#949BA4]">Yesterday at 8:30 PM</span>
+                    </div>
+                    <p class="text-[#DBDEE1] text-sm">The Marketing Case Study was structured perfectly. Got an A. Will order again next semester.</p>
+                </div>
+            </div>
+
+            <div class="bg-[#2B2D31] p-4 rounded-xl flex gap-4 md:col-span-2">
+                <img src="https://ui-avatars.com/api/?name=Arjun&background=random" class="w-10 h-10 rounded-full" alt="avatar">
+                <div>
+                    <div class="flex items-baseline gap-2 mb-1">
+                        <span class="font-medium text-[#F2F3F5]">Arjun</span>
+                        <span class="text-xs text-[#949BA4]">11/14/2026</span>
+                    </div>
+                    <p class="text-[#DBDEE1] text-sm">I was terrified about getting caught for AI. They sent a ZeroGPT screenshot with the essay. Fully legit and super cheap compared to others.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- DETAILED SERVICES SECTION -->
-    <section id="services" class="py-24 px-6 relative z-10">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-20 reveal">
-                <h2 class="text-4xl md:text-5xl font-black mb-4">What We <span class="text-brand-accent">Deliver</span></h2>
-                <p class="text-gray-400 max-w-2xl mx-auto">Extensive academic and technical solutions tailored for modern degrees. Very low cost, strictly confidential.</p>
+    <!-- FOOTER -->
+    <footer class="border-t border-gray-900 bg-surface/30 pt-16 pb-8 px-4 sm:px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <div>
+                <span class="text-2xl font-bold tracking-tight">AuraGrades</span>
+                <p class="text-gray-500 text-sm mt-2">The Gen-Z standard for academic excellence.</p>
             </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Service 1 -->
-                <div class="card-3d p-8 rounded-3xl reveal">
-                    <div class="w-14 h-14 rounded-2xl bg-brand-primary/20 flex items-center justify-center text-brand-primary text-2xl mb-6"><i class="fa-solid fa-code"></i></div>
-                    <h3 class="text-2xl font-bold mb-3">Programming & IT</h3>
-                    <p class="text-gray-400 text-sm mb-6 leading-relaxed">Full support for BCA, B.Tech & CS assignments. Java, Python, C++, Data Structures, Database Design, and algorithms.</p>
-                    <div class="pt-4 border-t border-gray-800 flex justify-between items-center">
-                        <span class="text-xs font-bold bg-gray-800 px-3 py-1 rounded-full">Instant Delivery</span>
-                    </div>
-                </div>
-
-                <!-- Service 2 -->
-                <div class="card-3d p-8 rounded-3xl reveal" style="transition-delay: 100ms;">
-                    <div class="w-14 h-14 rounded-2xl bg-brand-secondary/20 flex items-center justify-center text-brand-secondary text-2xl mb-6"><i class="fa-solid fa-laptop-code"></i></div>
-                    <h3 class="text-2xl font-bold mb-3">Web Development</h3>
-                    <p class="text-gray-400 text-sm mb-6 leading-relaxed">Complete frontend & backend projects. HTML, CSS, Tailwind, JavaScript, React, and hosting setups (GitHub Pages, Hostinger).</p>
-                    <div class="pt-4 border-t border-gray-800 flex justify-between items-center">
-                        <span class="text-xs font-bold bg-gray-800 px-3 py-1 rounded-full">Low Cost</span>
-                    </div>
-                </div>
-
-                <!-- Service 3 -->
-                <div class="card-3d p-8 rounded-3xl reveal" style="transition-delay: 200ms;">
-                    <div class="w-14 h-14 rounded-2xl bg-brand-accent/20 flex items-center justify-center text-brand-accent text-2xl mb-6"><i class="fa-solid fa-bullhorn"></i></div>
-                    <h3 class="text-2xl font-bold mb-3">Digital Marketing</h3>
-                    <p class="text-gray-400 text-sm mb-6 leading-relaxed">Meta Ads strategies, SEO reports, social media growth plans, and lead generation case studies for business students.</p>
-                    <div class="pt-4 border-t border-gray-800 flex justify-between items-center">
-                        <span class="text-xs font-bold bg-gray-800 px-3 py-1 rounded-full">Pro Level</span>
-                    </div>
-                </div>
-
-                <!-- Service 4 -->
-                <div class="card-3d p-8 rounded-3xl reveal">
-                    <div class="w-14 h-14 rounded-2xl bg-pink-500/20 flex items-center justify-center text-pink-500 text-2xl mb-6"><i class="fa-solid fa-file-pen"></i></div>
-                    <h3 class="text-2xl font-bold mb-3">Essays & Case Studies</h3>
-                    <p class="text-gray-400 text-sm mb-6 leading-relaxed">MBA case studies, humanities essays, literature reviews, and detailed research papers with proper citations (APA, MLA).</p>
-                    <div class="pt-4 border-t border-gray-800 flex justify-between items-center">
-                        <span class="text-xs font-bold bg-gray-800 px-3 py-1 rounded-full">Zero AI</span>
-                    </div>
-                </div>
-
-                <!-- Service 5 -->
-                <div class="card-3d p-8 rounded-3xl reveal" style="transition-delay: 100ms;">
-                    <div class="w-14 h-14 rounded-2xl bg-yellow-500/20 flex items-center justify-center text-yellow-500 text-2xl mb-6"><i class="fa-solid fa-chart-pie"></i></div>
-                    <h3 class="text-2xl font-bold mb-3">PPTs & Presentations</h3>
-                    <p class="text-gray-400 text-sm mb-6 leading-relaxed">High-impact, visually stunning PowerPoint presentations for final year projects, pitch decks, and seminar defenses.</p>
-                    <div class="pt-4 border-t border-gray-800 flex justify-between items-center">
-                        <span class="text-xs font-bold bg-gray-800 px-3 py-1 rounded-full">Instant Service</span>
-                    </div>
-                </div>
-
-                <!-- Service 6 -->
-                <div class="card-3d p-8 rounded-3xl reveal" style="transition-delay: 200ms;">
-                    <div class="w-14 h-14 rounded-2xl bg-green-500/20 flex items-center justify-center text-green-500 text-2xl mb-6"><i class="fa-solid fa-calculator"></i></div>
-                    <h3 class="text-2xl font-bold mb-3">Math & Engineering</h3>
-                    <p class="text-gray-400 text-sm mb-6 leading-relaxed">Advanced mathematics, physics, mechanics, and core engineering problems solved step-by-step by experts.</p>
-                    <div class="pt-4 border-t border-gray-800 flex justify-between items-center">
-                        <span class="text-xs font-bold bg-gray-800 px-3 py-1 rounded-full">100% Accurate</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FEATURES / WHY US SECTION -->
-    <section id="features" class="py-24 px-6 relative z-10 bg-gradient-to-b from-transparent to-brand-dark">
-        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
-            <div class="reveal">
-                <h2 class="text-4xl md:text-5xl font-black mb-8">Why Students <br/><span class="text-brand-secondary">Trust Us.</span></h2>
-                <div class="space-y-6">
-                    <div class="flex gap-4">
-                        <div class="w-12 h-12 rounded-full bg-brand-primary/20 flex-shrink-0 flex items-center justify-center text-brand-primary"><i class="fa-solid fa-indian-rupee-sign"></i></div>
-                        <div><h4 class="text-xl font-bold mb-1">Very Low Cost</h4><p class="text-gray-400 text-sm">Priced specifically for student budgets. Premium quality doesn't have to break the bank.</p></div>
-                    </div>
-                    <div class="flex gap-4">
-                        <div class="w-12 h-12 rounded-full bg-green-500/20 flex-shrink-0 flex items-center justify-center text-green-500"><i class="fa-solid fa-bolt"></i></div>
-                        <div><h4 class="text-xl font-bold mb-1">Instant Service</h4><p class="text-gray-400 text-sm">Submission in 3 hours? We have dedicated experts ready to drop everything and execute your task.</p></div>
-                    </div>
-                    <div class="flex gap-4">
-                        <div class="w-12 h-12 rounded-full bg-red-500/20 flex-shrink-0 flex items-center justify-center text-red-500"><i class="fa-solid fa-user-secret"></i></div>
-                        <div><h4 class="text-xl font-bold mb-1">100% Incognito</h4><p class="text-gray-400 text-sm">Your identity is encrypted. Files are deleted post-delivery. Your college will never know.</p></div>
-                    </div>
-                </div>
-            </div>
-            <div class="card-3d p-10 rounded-3xl reveal border-brand-primary/30 relative overflow-hidden">
-                <div class="absolute top-0 right-0 w-32 h-32 bg-brand-primary/20 blur-3xl"></div>
-                <h3 class="text-2xl font-bold mb-6">Ready to fix your grades?</h3>
-                <p class="text-gray-400 mb-8">Send us your assignment prompt, syllabus, or project requirements directly on WhatsApp. Get a quote in 2 minutes.</p>
-                <a href="https://wa.me/917005199436" target="_blank" class="w-full bg-white text-black py-4 rounded-xl font-bold text-lg hover:bg-gray-200 transition-colors flex items-center justify-center gap-3">
-                    <i class="fa-brands fa-whatsapp text-green-500 text-2xl"></i> Message 7005199436
+            
+            <div class="flex gap-4">
+                <a href="https://wa.me/917005199436" target="_blank" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-whatsapp hover:text-white transition-colors text-gray-400">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+                <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary hover:text-white transition-colors text-gray-400">
+                    <i class="fa-brands fa-instagram"></i>
                 </a>
             </div>
         </div>
-    </section>
+        <div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-gray-900 text-center text-xs text-gray-600 font-medium">
+            <a href="#" class="hover:text-gray-400 mr-4">Terms of Service</a>
+            <a href="#" class="hover:text-gray-400 mr-4">Privacy Policy</a>
+            <a href="#" class="hover:text-gray-400">Refund Policy</a>
+            <p class="mt-4">&copy; 2026 AuraGrades. All rights reserved.</p>
+        </div>
+    </footer>
 
-    <!-- FAQ & LEGAL SECTION -->
-    <section id="faq" class="py-24 px-6 relative z-10">
-        <div class="max-w-4xl mx-auto reveal">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-black mb-4">FAQ & <span class="text-gray-500">Legal</span></h2>
-                <p class="text-gray-400">Clear policies, zero confusion.</p>
-            </div>
-            
-            <div class="space-y-4">
-                <!-- Accordion Item 1 -->
-                <div class="card-3d rounded-2xl overflow-hidden cursor-pointer accordion-item">
-                    <div class="p-6 flex justify-between items-center font-bold text-lg">
-                        <span>Is the work AI generated? (ChatGPT/Gemini)</span>
-                        <i class="fa-solid fa-chevron-down text-gray-500 transition-transform duration-300"></i>
-                    </div>
-                    <div class="px-6 pb-6 text-gray-400 text-sm hidden-content hidden">
-                        Absolutely not. We guarantee 0% AI content. Every task is crafted manually by domain experts. We even provide Turnitin & AI-detection reports upon request.
-                    </div>
-                </div>
-                <!-- Accordion Item 2 -->
-                <div class="card-3d rounded-2xl overflow-hidden cursor-pointer accordion-item">
-                    <div class="p-6 flex justify-between items-center font-bold text-lg">
-                        <span>What if I need changes in the project?</span>
-                        <i class="fa-solid fa-chevron-down text-gray-500 transition-transform duration-300"></i>
-                    </div>
-                    <div class="px-6 pb-6 text-gray-400 text-sm hidden-content hidden">
-                        We offer free unlimited revisions. If the work does not perfectly align with the instructions you initially provided, we will fix it immediately at no extra cost.
-                    </div>
-                </div>
-                <!-- Accordion Item 3 -->
-                <div class="card-3d rounded-2xl overflow-hidden cursor-pointer accordion-item">
-                    <div class="p-6 flex justify-between items-center font-bold text-lg">
-                        <span>Terms of Service & Refund Policy</span>
-                        <i class="fa-solid fa-chevron-down text-gray-500 transition-transform duration-300"></i>
-                    </div>
-                    <div class="px-6 pb-6 t
+    <!-- STICKY MOBILE WHATSAPP FAB -->
+    <a href="https://wa.me/917005199436" target="_blank" class="md:hidden fixed bottom-6 right-6 w-14 h-14 bg-whatsapp text-white rounded-full flex items-center justify-center text-3xl shadow-[0_4px_20px_rgba(37,211,102,0.4)] z-[100] animate-bounce">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+</body>
+</html>
